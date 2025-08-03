@@ -37,13 +37,9 @@ class HomeController extends GetxController {
     messages.add(ChatMessageModel(message: "", isSystem: true));
     _streamSub?.cancel();
 
-    final url = Uri.parse('https://api.deepseek.com/v1/chat/completions');
+    final url = Uri.parse('https://ai-dream-proxy.onrender.com/gpt');
 
     final request = http.Request('POST', url)
-      ..headers.addAll({
-        'Authorization': 'Bearer $apiKey',
-        'Content-Type': 'application/json',
-      })
       ..body = jsonEncode({
         "model": "deepseek-chat",
         "messages": [
